@@ -3,12 +3,60 @@ title: Laravel
 description: Деплой приложения на Laravel.
 ---
 
-## Подготовка репозитория
+## Как Railpack собирает Laravel
 
-## Создание приложения
+Laravel распознаётся по файлу `artisan`. Railpack:
+
+1. Ставит PHP и зависимости из `composer.json`.
+2. Если есть `package.json`, собирает фронтенд (Vite) и удаляет dev-зависимости Node.js.
+3. Запускает приложение на [FrankenPHP](https://frankenphp.dev) с корнем в `public/`.
+
+При каждом запуске контейнера выполняются:
+
+```bash
+php artisan migrate --force
+php artisan storage:link
+php artisan optimize:clear
+php artisan optimize
+```
+
+<Callout type="warn">
+  Миграции выполняются автоматически при каждом запуске. Чтобы отключить это, задайте
+  `RAILPACK_SKIP_MIGRATIONS=true`.
+</Callout>
+
+## Порт
+
+FrankenPHP слушает переменную `PORT`, а без неё — **80**. Порт домена по умолчанию — 3000, поэтому
+добавьте `PORT=3000` или поменяйте порт в домене на 80.
 
 ## Переменные окружения
 
-## Домен
+Минимальный набор для production:
 
-## Частые проблемы
+```bash
+APP_KEY=base64:...        # php artisan key:generate --show
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=https://example.com
+PORT=3000
+```
+
+Для подключения к [PostgreSQL](/docs/databases/postgres) задайте `DB_CONNECTION=pgsql` и параметры базы.
+
+## Файлы и хранилище
+
+Файловая система контейнера пересоздаётся при каждом деплое. Загрузки пользователей и другие файлы из
+`storage/app` храните в [томе](/docs/deployments/volumes) или во внешнем объектном хранилище.
+
+## Версия PHP
+
+Берётся из `composer.json`; по умолчанию — **8.4**. Поддерживаются версии от 8.2.
+
+## Полезные переменные Railpack
+
+| Переменная | Что делает |
+| --- | --- |
+| `RAILPACK_SKIP_MIGRATIONS` | `true` — не выполнять миграции при запуске |
+| `RAILPACK_PHP_EXTENSIONS` | Дополнительные расширения PHP через запятую |
+| `RAILPACK_PHP_ROOT_DIR` | Другой корень документов вместо `public/` |

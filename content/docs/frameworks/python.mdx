@@ -3,12 +3,63 @@ title: Python
 description: Деплой приложения на Django, FastAPI или Flask.
 ---
 
-## Подготовка репозитория
+## Как Railpack определяет приложение
 
-## Создание приложения
+Проект распознаётся как Python, если в корне есть `requirements.txt`, `pyproject.toml`, `Pipfile` или
+один из файлов `main.py`, `app.py`, `server.py`.
 
-## Переменные окружения
+**Менеджер пакетов** — по файлам проекта:
 
-## Домен
+| Файлы | Менеджер |
+| --- | --- |
+| `requirements.txt` | pip |
+| `pyproject.toml` + `poetry.lock` | Poetry |
+| `pyproject.toml` + `uv.lock` | uv |
+| `pyproject.toml` + `pdm.lock` | PDM |
+| `Pipfile` | Pipenv |
+
+## Команда запуска по фреймворкам
+
+| Фреймворк | Команда по умолчанию | Что нужно в зависимостях |
+| --- | --- | --- |
+| Django | `python manage.py migrate && gunicorn <app>:application` | `gunicorn` |
+| FastAPI | `uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}` | `uvicorn` |
+| Flask | `gunicorn --bind 0.0.0.0:${PORT:-8000} main:app` | `gunicorn` |
+
+Если структура проекта другая, укажите команду запуска в настройках «Сборка и запуск».
+
+<Callout type="warn">
+  Django при каждом запуске выполняет `migrate`. Учитывайте это, если у сервиса несколько реплик.
+</Callout>
+
+## Порт
+
+FastAPI и Flask по умолчанию слушают **8000**, а порт домена по умолчанию — **3000**. Добавьте
+переменную `PORT=3000` (или поменяйте порт в домене на 8000).
+
+Для Django переменная `PORT` **обязательна**: без неё gunicorn слушает только `127.0.0.1` и приложение
+недоступно снаружи.
+
+## Версия Python
+
+Берётся из (по приоритету): переменной `RAILPACK_PYTHON_VERSION`, `.python-version`, `.tool-versions`,
+`mise.toml`, `runtime.txt`, `Pipfile`. По умолчанию — **3.13**. Поддерживаются версии от 3.10.
+
+## Полезные переменные Railpack
+
+| Переменная | Что делает |
+| --- | --- |
+| `RAILPACK_PYTHON_VERSION` | Версия Python |
+| `RAILPACK_DJANGO_APP_NAME` | WSGI-модуль Django, если не определился сам |
+| `RAILPACK_PYTHON_PLAYWRIGHT_INSTALL` | Установить браузеры Playwright |
 
 ## Частые проблемы
+
+<Accordions>
+  <Accordion title="Django недоступен по домену">
+    Не задана переменная `PORT` — gunicorn слушает только `127.0.0.1`. Добавьте `PORT=3000`.
+  </Accordion>
+  <Accordion title="«No module named uvicorn» или «gunicorn: not found»">
+    Добавьте сервер в зависимости проекта — Railpack не ставит его сам.
+  </Accordion>
+</Accordions>

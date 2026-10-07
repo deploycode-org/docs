@@ -3,12 +3,70 @@ title: Node.js
 description: "Деплой сервера на Node.js: Express, Fastify, NestJS."
 ---
 
-## Подготовка репозитория
+## Как Railpack определяет приложение
 
-## Создание приложения
+Приложение распознаётся по `package.json` в корне (или в [пути сборки](/docs/deployments/builders#путь-сборки)).
 
-## Переменные окружения
+**Менеджер пакетов** определяется так:
 
-## Домен
+1. Поле `packageManager` в `package.json` (версия ставится через Corepack).
+2. Lock-файл: `pnpm-lock.yaml`, `bun.lock`/`bun.lockb`, `yarn.lock`, `.yarnrc.yml`.
+3. По умолчанию — npm.
+
+**Команда запуска** выбирается так:
+
+1. Скрипт `start` в `package.json`.
+2. Поле `main` в `package.json`.
+3. Файл `index.js` или `index.ts` в корне.
+
+Если есть скрипт `build`, он выполняется при сборке.
+
+## Порт
+
+Слушайте порт из переменной `PORT` на всех интерфейсах:
+
+```js
+const port = Number(process.env.PORT ?? 3000);
+app.listen(port, '0.0.0.0');
+```
+
+Добавьте приложению переменную `PORT` со значением порта контейнера из [домена](/docs/networking)
+(по умолчанию 3000).
+
+## Версия Node.js
+
+Берётся из (по приоритету): переменной `RAILPACK_NODE_VERSION`, `engines.node` в `package.json`,
+`.nvmrc`, `.node-version`, `mise.toml` или `.tool-versions`. По умолчанию — **22**.
+
+Для Bun версия задаётся `RAILPACK_BUN_VERSION` или файлом `.bun-version`.
+
+## Монорепозитории
+
+Railpack поддерживает workspaces npm, yarn, bun и pnpm (`pnpm-workspace.yaml`), а также Nx.
+
+- Если нужен конкретный пакет, задайте скрипты `build` и `start` в корневом `package.json` или
+  переопределите команды в настройках «Сборка и запуск».
+- В Nx с несколькими приложениями укажите переменную `RAILPACK_NX_APP` (например, `web` или `apps/web`).
+
+## Полезные переменные Railpack
+
+| Переменная | Что делает |
+| --- | --- |
+| `RAILPACK_NODE_VERSION` | Версия Node.js |
+| `RAILPACK_PRUNE_DEPS` | Удалить dev-зависимости из итогового образа |
+| `RAILPACK_NODE_INSTALL_PATTERNS` | Доп. файлы, нужные для установки зависимостей (например, `prisma`) |
+| `RAILPACK_NODE_PLAYWRIGHT_INSTALL` | Установить браузеры Playwright |
+
+При запуске выставляются `NODE_ENV=production` и `CI=true`.
 
 ## Частые проблемы
+
+<Accordions>
+  <Accordion title="Домен отдаёт 502">
+    Приложение слушает не тот порт или только `localhost`. См. раздел «Порт» выше.
+  </Accordion>
+  <Accordion title="Railpack отдаёт статику вместо запуска сервера">
+    Railpack распознал SPA (Vite, Astro и т. п.). В настройках «Сборка и запуск» выберите результат
+    сборки **Веб-сервис** или укажите команду запуска.
+  </Accordion>
+</Accordions>
