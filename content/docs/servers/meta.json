@@ -1,0 +1,14 @@
+{
+    "title": "Серверы",
+    "icon": "Server",
+    "pages": [
+        "index",
+        "requirements",
+        "connect",
+        "provisioning",
+        "security",
+        "yandex-cloud",
+        "firewall",
+        "ssh-keys"
+    ]
+}

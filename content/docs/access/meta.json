@@ -1,0 +1,5 @@
+{
+    "title": "Команда и доступ",
+    "icon": "Users",
+    "pages": ["members", "roles", "invitations", "api-keys"]
+}

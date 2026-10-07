@@ -1,0 +1,5 @@
+{
+    "title": "Устранение неполадок",
+    "icon": "LifeBuoy",
+    "pages": ["index", "servers", "builds", "deployments", "domains"]
+}

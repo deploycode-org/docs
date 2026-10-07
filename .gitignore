@@ -1,3 +1,5 @@
+.idea
+
 # Logs
 logs
 *.log
@@ -147,3 +149,10 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Fumadocs
+.source
+next-env.d.ts
+.vercel
+.DS_Store
+*.pem

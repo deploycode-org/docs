@@ -1,0 +1,5 @@
+{
+    "title": "Организации и проекты",
+    "icon": "Network",
+    "pages": ["index", "scope", "organizations", "projects", "environments", "services", "topology"]
+}

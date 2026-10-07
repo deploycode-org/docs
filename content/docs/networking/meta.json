@@ -1,0 +1,5 @@
+{
+    "title": "Сеть и домены",
+    "icon": "Globe",
+    "pages": ["index", "managed-domains", "custom-domains", "tls", "ports"]
+}

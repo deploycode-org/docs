@@ -1,0 +1,5 @@
+{
+    "title": "Фреймворки",
+    "icon": "Code",
+    "pages": ["index", "nextjs", "nodejs", "python", "laravel", "go", "static"]
+}

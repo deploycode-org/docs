@@ -1,0 +1,5 @@
+{
+    "title": "Справочник",
+    "icon": "Library",
+    "pages": ["api", "glossary", "faq"]
+}

@@ -1,0 +1,24 @@
+{
+    "pages": [
+        "---Начало работы---",
+        "index",
+        "quick-start",
+        "how-it-works",
+        "concepts",
+        "---Платформа---",
+        "structure",
+        "servers",
+        "deployments",
+        "databases",
+        "backups",
+        "networking",
+        "observability",
+        "access",
+        "---Гайды---",
+        "guides",
+        "frameworks",
+        "---Справочник---",
+        "troubleshooting",
+        "reference"
+    ]
+}

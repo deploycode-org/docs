@@ -1,0 +1,21 @@
+---
+title: Сервер
+description: Проблемы с подключением и подготовкой сервера.
+---
+
+<Accordions>
+  <Accordion title="Панель не может подключиться по SSH">
+    Проверьте, что SSH-порт (обычно 22) открыт и служба SSH запущена, а публичный ключ организации
+    добавлен пользователю на сервере.
+  </Accordion>
+  <Accordion title="Ошибка «Non-root user requires passwordless sudo access»">
+    Пользователю нужен sudo без пароля. См. [Требования](/docs/servers/requirements#пользователь).
+  </Accordion>
+  <Accordion title="Порт 80 занят">
+    На порту 80 работает Traefik. Остановите веб-сервер, который его занимает (nginx, Apache), и
+    повторите подготовку.
+  </Accordion>
+  <Accordion title="Заканчивается место на диске">
+    Старые образы и кеш сборки занимают место. Рекомендуемый размер диска — от 40 ГБ.
+  </Accordion>
+</Accordions>

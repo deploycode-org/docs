@@ -1,0 +1,15 @@
+{
+    "title": "Сборка и деплой",
+    "icon": "Hammer",
+    "pages": [
+        "index",
+        "github",
+        "builders",
+        "variables",
+        "volumes",
+        "patches",
+        "readiness",
+        "rollbacks",
+        "registry"
+    ]
+}

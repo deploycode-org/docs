@@ -1,0 +1,5 @@
+{
+    "title": "Наблюдаемость",
+    "icon": "Activity",
+    "pages": ["logs", "previews", "notifications"]
+}

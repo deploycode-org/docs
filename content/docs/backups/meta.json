@@ -1,0 +1,5 @@
+{
+    "title": "Бэкапы",
+    "icon": "ArchiveRestore",
+    "pages": ["index", "postgres", "volumes", "restore"]
+}

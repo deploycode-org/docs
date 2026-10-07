@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@import "fumadocs-ui/css/neutral.css";
+@import "fumadocs-ui/css/preset.css";
+
+html {
+    scrollbar-gutter: stable;
+}
+
+/* Компенсация сдвига при блокировке скролла в диалогах. */
+html > body[data-scroll-locked] {
+    /* biome-ignore lint/complexity/noImportantStyles: перебивает inline-стиль scroll-lock */
+    margin-right: 0px !important;
+    /* biome-ignore lint/complexity/noImportantStyles: см. выше */
+    --removed-body-scroll-bar-size: 0px !important;
+}
