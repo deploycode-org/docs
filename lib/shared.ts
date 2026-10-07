@@ -2,6 +2,9 @@ import { createGetUrl } from 'fumadocs-core/source';
 
 export const appName = 'DeployCode';
 export const appUrl = 'https://app.deploycode.ru';
+// Публичный адрес документации: из него строятся абсолютные ссылки (OG-картинки).
+// Переменная нужна только для другого адреса, например стенда.
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://docs.deploycode.ru';
 export const docsRoute = '/docs';
 export const docsImageRoute = '/og/docs';
 export const docsContentRoute = '/llms.mdx/docs';

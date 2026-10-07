@@ -3,14 +3,14 @@ import './global.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ru } from '@/lib/i18n';
-import { appName } from '@/lib/shared';
+import { appName, siteUrl } from '@/lib/shared';
 
 const inter = Inter({
     subsets: ['latin', 'cyrillic'],
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
+    metadataBase: new URL(siteUrl),
     title: {
         template: `%s — ${appName}`,
         default: `Документация ${appName}`,

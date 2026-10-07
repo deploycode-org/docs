@@ -156,3 +156,5 @@ next-env.d.ts
 .vercel
 .DS_Store
 *.pem
+railpack-plan.json
+railpack-info.json
