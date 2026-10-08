@@ -92,7 +92,8 @@ no environment variables are required.
   own cloud. There is no self-hosted or on-prem edition.
 - Verify product facts in `../deploycode` (DB schema in `packages/server/src/db/schema`, server
   setup in `packages/server/src/setup`, feature status in
-  `.claude/skills/project-knowledge/references/project.md`) instead of inferring them. Example:
-  servers connect as a non-root user that **requires passwordless sudo**, not "without root
-  privileges". When a detail is unknown, leave a stub heading or `<Callout>Скоро.</Callout>`
-  rather than inventing it.
+  `.claude/skills/project-knowledge/references/project.md`) instead of inferring them, and check
+  the UI components in `apps/web/components` for the user's actual flow and labels. Example: a
+  server connects as `root` by default, or as a user with passwordless sudo; an earlier version of
+  these docs wrongly said root was not needed. When a detail is unknown, leave a stub heading or
+  `<Callout>Скоро.</Callout>` rather than inventing it.
