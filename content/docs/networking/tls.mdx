@@ -20,9 +20,10 @@ Let's Encrypt проверяет домен по HTTP — запросом на 
 1. DNS домена должен указывать на сервер.
 2. Порт 80 должен быть открыт снаружи.
 
-Для [управляемых](/docs/networking/managed-domains) и [собственных](/docs/networking/custom-domains)
-доменов DeployCode включает HTTPS сам, как только проверка DNS проходит. Если вы выключили HTTPS вручную,
-DeployCode не включит его снова.
+DeployCode включает HTTPS сам, как только проверка DNS проходит. Для
+[управляемых доменов](/docs/networking/managed-domains#https) есть ещё одно условие — хотя бы одна
+успешная сборка приложения. Если вы выключили HTTPS у [собственного домена](/docs/networking/custom-domains)
+вручную, DeployCode не включит его снова.
 
 ## Перенаправление на HTTPS
 
