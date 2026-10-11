@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "skills": {
+        "ru-check": {
+            "source": "talkstream/ru-text",
+            "sourceType": "github",
+            "skillPath": "skills/ru-check/SKILL.md",
+            "computedHash": "eaae5f387e077353436215a973f894e015839211cac450d0486ebe078e8d727a"
+        },
+        "ru-text": {
+            "source": "talkstream/ru-text",
+            "sourceType": "github",
+            "skillPath": "skills/ru-text/SKILL.md",
+            "computedHash": "feb000110e409b7205a6faf1b1afc2ed14775aff107cb96f265a40e9cb3b6167"
+        }
+    }
+}

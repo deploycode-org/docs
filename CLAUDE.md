@@ -45,6 +45,10 @@ no environment variables are required.
   `source.config.ts`; collections and schemas are declared inline there. Generated output goes to
   `.source/` (gitignored). `lucideIconsPlugin` resolves `icon:` strings in frontmatter and
   `meta.json` to Lucide icons by name.
+- **Typography**: `lib/remark-nbsp.ts` (wired in `lib/source.ts` via `applyMdxPreset`) inserts non-breaking
+  spaces at build time: before em dashes, after one-letter words, between a number and the next word, and
+  in «т. д.». Do not add NBSP to MDX by hand. The plugin skips code and headings, because heading text
+  becomes the anchor slug. Run the `ru-check` skill before committing larger text changes.
 - **UI package alias**: `fumadocs-ui` is `npm:@fumadocs/base-ui`, the Base UI variant that matches
   the product's `@base-ui/react`. Import from `fumadocs-ui/...` as usual.
 - **Routes**: `app/docs/[[...slug]]` renders pages. `app/og/docs/[...slug]` renders OG images.
