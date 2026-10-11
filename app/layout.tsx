@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         template: `%s — ${appName}`,
         default: `Документация ${appName}`,
     },
-    description: 'Документация DeployCode: деплой из git на ваши собственные серверы.',
+    description: 'Документация DeployCode: развёртывание из git на ваши собственные серверы.',
     icons: {
         icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }, { url: '/favicon.ico' }],
         apple: '/apple-touch-icon.png',

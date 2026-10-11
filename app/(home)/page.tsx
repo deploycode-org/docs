@@ -5,7 +5,7 @@ const sections = [
     {
         icon: Rocket,
         title: 'Быстрый старт',
-        text: 'Первый деплой за несколько минут.',
+        text: 'Первое развёртывание за несколько минут.',
         href: '/docs/quick-start',
     },
     {
@@ -22,7 +22,7 @@ const sections = [
     },
     {
         icon: Hammer,
-        title: 'Сборка и деплой',
+        title: 'Сборка и развёртывание',
         text: 'Railpack, переменные, тома, откаты.',
         href: '/docs/deployments',
     },
@@ -46,8 +46,8 @@ export default function HomePage() {
             <div className="flex flex-col gap-4">
                 <h1 className="text-4xl font-semibold tracking-tight">Документация DeployCode</h1>
                 <p className="max-w-2xl text-lg text-fd-muted-foreground">
-                    Деплой из git на ваши собственные серверы: панель управления на нашей стороне,
-                    приложения и данные — на вашей.
+                    Развёртывание из git на ваши собственные серверы: панель управления на нашей
+                    стороне, приложения и данные — на вашей.
                 </p>
                 <div className="flex gap-3">
                     <Link
