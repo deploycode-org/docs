@@ -5,6 +5,7 @@
         "index",
         "github",
         "builders",
+        "build-server",
         "variables",
         "volumes",
         "patches",
