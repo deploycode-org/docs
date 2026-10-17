@@ -4,6 +4,8 @@
     "pages": [
         "index",
         "github",
+        "templates",
+        "docker-image",
         "builders",
         "build-server",
         "variables",
