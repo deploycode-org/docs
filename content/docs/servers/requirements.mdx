@@ -50,4 +50,9 @@ DeployCode подключается по SSH под пользователем, 
 
 - `root` — вариант по умолчанию;
 - или обычный пользователь с **sudo без пароля**. Без него настройка остановится с ошибкой
-  «Non-root user requires passwordless sudo access».
+  «Non-root user requires passwordless sudo access», см.
+  [Устранение неполадок](/docs/troubleshooting/servers).
+
+Под обычным пользователем установка выполняется через sudo, а в конце DeployCode добавляет его в группу
+`docker`: дальше развёртывания идут под ним без sudo. Серверы, созданные из панели, ничего настраивать не
+требуют: в reg.ru Cloud панель подключается под `root`, в Yandex Cloud — под `ubuntu` и ставит всё через sudo.
