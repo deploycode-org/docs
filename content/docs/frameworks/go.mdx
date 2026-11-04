@@ -29,7 +29,8 @@ if port == "" {
 log.Fatal(http.ListenAndServe(":"+port, handler))
 ```
 
-Добавьте приложению переменную `PORT` со значением порта контейнера из [домена](/docs/networking).
+DeployCode передаёт в `PORT` порт контейнера из [домена](/docs/networking), так что задавать переменную
+самому не нужно.
 
 ## Версия Go
 

@@ -27,8 +27,8 @@ php artisan optimize
 
 ## Порт
 
-FrankenPHP слушает переменную `PORT`, а без неё — **80**. Порт домена по умолчанию — 3000, поэтому
-добавьте `PORT=3000` или поменяйте порт в домене на 80.
+FrankenPHP слушает переменную `PORT`, а без неё — **80**. DeployCode передаёт в `PORT` порт домена, так что
+задавать переменную самому не нужно.
 
 ## Переменные окружения
 
@@ -39,7 +39,6 @@ APP_KEY=base64:...        # php artisan key:generate --show
 APP_ENV=production
 APP_DEBUG=false
 APP_URL=https://example.com
-PORT=3000
 ```
 
 Для подключения к [PostgreSQL](/docs/databases/postgres) задайте `DB_CONNECTION=pgsql` и параметры базы.

@@ -23,7 +23,7 @@ const sections = [
     {
         icon: Hammer,
         title: 'Сборка и развёртывание',
-        text: 'Railpack, переменные, тома, откаты.',
+        text: 'Dockerfile и Railpack, переменные, тома, откаты.',
         href: '/docs/deployments',
     },
     {
