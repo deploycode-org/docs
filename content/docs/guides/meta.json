@@ -1,5 +1,5 @@
 {
     "title": "Руководства",
     "icon": "Compass",
-    "pages": ["production-checklist", "best-practices"]
+    "pages": ["production-checklist", "docker", "best-practices"]
 }
